@@ -4,12 +4,12 @@
 
 #include "gmp.h"
 #include <cuda.h>
-#include "../cgbn/cgbn.h"
+#include "../include/cgbn/cgbn.h"
 
 // This project's .h files
-#include "../assume.h"
-#include "../convert.h"
-#include "../gpu_support.h"
+#include "../include/assume.h"
+//#include "../include/convert.h"
+#include "../include/gpu_support.h"
 
 
 /**
@@ -81,7 +81,7 @@ __host__ __device__ static void
 fp_Constant(env_t env,
     const typename env_t::cgbn_t& p,
     const uint32_t a,
-    typename env_t::cgbn_t& b)；
+    typename env_t::cgbn_t& b);
 
     /**
  * Copy one fp element to another.
@@ -93,13 +93,14 @@ fp_Constant(env_t env,
  * void
 fp_Copy(const ff_Params *p, mp dst, const mp src);
  */
+
+
 template<typename env_t>
 __host__ __device__ static void
 fp_Copy(env_t env,
-    const typename env_t::cgbn_t& p,
-    typename env_t::cgbn_t& dst,
-    const typename env_t::cgbn_t&src)；
-
+const typename env_t::cgbn_t& p,
+typename env_t::cgbn_t& dst,
+const typename env_t::cgbn_t&src);
     /**
  * Initialization
  *
@@ -113,7 +114,7 @@ template<typename env_t>
 __host__ __device__ static void
 fp_Init(env_t env,
     const typename env_t::cgbn_t& p,
-    const typename env_t::cgbn_t& a)；
+    const typename env_t::cgbn_t& a);
 
   /**
  * Checking for equality
@@ -130,7 +131,7 @@ __host__ __device__ static bool
 fp_IsEqual(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    const typename env_t::cgbn_t& b)；
+    const typename env_t::cgbn_t& b);
 
     /**
  * Inversion
@@ -147,7 +148,7 @@ __host__ __device__ static bool
 fp_Invert(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    typename env_t::cgbn_t& b)；
+    typename env_t::cgbn_t& b);
 
     /**
  * Checks if the i'th bit is set
@@ -164,7 +165,7 @@ __host__ __device__ static bool
 fp_IsBitSet(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    const uint32_t index)；
+    const uint32_t index);
 
     /**
  * Checks equality with an integer constant
@@ -183,7 +184,7 @@ __host__ __device__ static void
 fp_IsConstant(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    const uint32_t constant) ；
+    const uint32_t constant) ;
 
     /**
  * Multiplication
@@ -203,7 +204,7 @@ fp_Multiply(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
     const typename env_t::cgbn_t& b,
-    typename env_t::cgbn_t& c)；
+    typename env_t::cgbn_t& c);
 
 
 /**
@@ -221,7 +222,7 @@ __host__ __device__ static void
 fp_Negative(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    typename env_t::cgbn_t& b)；
+    typename env_t::cgbn_t& b);
 
 /**
  * Exponentiation
@@ -239,7 +240,7 @@ fp_Pow(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
     const typename env_t::cgbn_t& b,
-    typename env_t::cgbn_t& c)；
+    typename env_t::cgbn_t& c);
 
 
 
@@ -257,7 +258,7 @@ __host__ static void
 fp_Rand(env_t env,
     const typename env_t::cgbn_t& p,
     typename env_t::cgbn_t& a,
-    const bool generation_mode = true)；
+    const bool generation_mode = true);
 
 
     /**
@@ -276,7 +277,7 @@ __host__ __device__ static void
 fp_Square(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
-    typename env_t::cgbn_t& b)；
+    typename env_t::cgbn_t& b);
 
 
 /**
@@ -295,7 +296,7 @@ fp_Subtract(env_t env,
     const typename env_t::cgbn_t& p,
     const typename env_t::cgbn_t& a,
     const typename env_t::cgbn_t& b,
-    typename env_t::cgbn_t& c)；
+    typename env_t::cgbn_t& c);
 
 
     /**
@@ -312,7 +313,7 @@ template<typename env_t>
 __host__ __device__ static void
 fp_Unity(env_t env,
     const typename env_t::cgbn_t& p,
-    typename env_t::cgbn_t& a)；
+    typename env_t::cgbn_t& a);
 
 
 /**
@@ -328,7 +329,7 @@ template<typename env_t>
 __host__ __device__ static void
 fp_Zero(env_t env,
     const typename env_t::cgbn_t& p,
-    typename env_t::cgbn_t& a)；
+    typename env_t::cgbn_t& a);
 
     /**
  * Decodes and sets an element to an hex value
@@ -342,12 +343,14 @@ fp_ImportHex(const char *hexStr, mp a);
 
 __host__ static void
 fp_ImportHex(const char* hexStr,
-    mpz_t a) ；
+    mpz_t a) ;
 
 
-    template<env_t>
+
+template<typename env_t>
 __host__ __device__ static void
 fp_ImportHex(env_t env,
     const char* hexStr,
-    typename env_t::cgbn_t a)；
+    typename env_t::cgbn_t a);
 
+#endif 
