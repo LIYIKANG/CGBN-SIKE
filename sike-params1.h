@@ -148,7 +148,8 @@ sike_teardown_params(env_t env,
  * SIKEp434 raw parameters
  */
 
-#include "sike_params.cu"
+#include "sike_params1.cu"
 
 #endif // CGBN-based codes
+#endif
 
