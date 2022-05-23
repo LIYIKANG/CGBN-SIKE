@@ -4,10 +4,16 @@
 目前还在改进中
 
 
-1fp.cu errors 17
-2fp.cu errors 3
-sike_params1.cu errors 14 designator may not specify a non-POD subobject?
-montgomery1.cu 2fp.cu(41): error: class template "fp2" has already been defined
+1fp.cu errors 17  
 
-               2fp.cu(321): warning: specifying a default argument when redeclaring an unreferenced function template is nonstandard
-               2fp.cu(321): warning: redefinition of default argument
+2fp.cu errors 3  
+
+sike_params1.cu errors 14 designator may not specify a non-POD subobject?  
+
+montgomery1.cu 2fp.cu(41): error: class template "fp2" has already been defined  
+
+
+               2fp.cu(321): warning: specifying a default argument when redeclaring an unreferenced function template is nonstandard  
+               
+               2fp.cu(321): warning: redefinition of default argument  
+               
